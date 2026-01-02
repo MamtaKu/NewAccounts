@@ -225,7 +225,7 @@ public class AccountsController {
     public ResponseEntity<String> getJavaVersion(){
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(environment.getProperty("JAVA_HOME"));
+                .body(environment.getProperty("java.version"));
     }
 
     @GetMapping("/contact-info")
