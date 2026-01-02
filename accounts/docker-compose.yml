@@ -1,0 +1,37 @@
+services:
+  accounts:
+    image: "mamtakumawat/accounts:v1"
+    container_name: "accounts_microservice"
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - microservices-network
+  cards:
+    image: "mamtakumawat/cards:v1"
+    container_name: "cards_microservice"
+    ports:
+      - "7000:7000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - microservices-network
+  loans:
+    image: "mamtakumawat/loans:v1"
+    container_name: "loans_microservice"
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - microservices-network
+networks:
+  microservices-network:
+    driver: "bridge"
